@@ -2918,9 +2918,9 @@ namespace IMGUIZMO_NAMESPACE
       ViewManipulate(view, length, position, size, backgroundColor);
    }
 
-   std::tuple<OPERATION, float> RotationAxis()
+   std::tuple<OPERATION, float> CurrentRotationAxis()
    {
-      return { gContext.mOperation, gContext.mRotationAngle };
+      return std::make_tuple(gContext.mOperation, gContext.mRotationAngle);
    }
 
    void ViewManipulate(float* view, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor)
