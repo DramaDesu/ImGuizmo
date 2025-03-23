@@ -114,6 +114,7 @@ void EditTransform(const Camera& camera, matrix_t& matrix)
 #ifndef IMGUIZMO_NAMESPACE
 #define IMGUIZMO_NAMESPACE ImGuizmo
 #endif
+#include <tuple>
 
 struct ImGuiWindow;
 
@@ -222,6 +223,9 @@ namespace IMGUIZMO_NAMESPACE
 
    // use this version if you did not call Manipulate before and you are just using ViewManipulate
    IMGUI_API void ViewManipulate(float* view, const float* projection, OPERATION operation, MODE mode, float* matrix, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor);
+
+   // Get active rotation axis
+   IMGUI_API std::tuple<OPERATION, float> CurrentRotationAxis();
 
    IMGUI_API void SetAlternativeWindow(ImGuiWindow* window);
 
