@@ -764,6 +764,7 @@ namespace IMGUIZMO_NAMESPACE
       ImVector<ImGuiID> mIDStack;
       ImGuiID mEditingID = -1;
       OPERATION mOperation = OPERATION(-1);
+      int mOperationType = -1;
 
       bool mAllowAxisFlip = true;
       float mGizmoSizeClipSpace = 0.1f;
@@ -2685,6 +2686,7 @@ namespace IMGUIZMO_NAMESPACE
       }
 
       gContext.mOperation = operation;
+      gContext.mOperationType = type;
       if (!gContext.mbUsingBounds)
       {
          DrawRotationGizmo(operation, type);
@@ -2918,9 +2920,9 @@ namespace IMGUIZMO_NAMESPACE
       ViewManipulate(view, length, position, size, backgroundColor);
    }
 
-   std::tuple<OPERATION, float> CurrentRotationAxis()
+   std::tuple<OPERATION, int, float> RotateOperation()
    {
-      return std::make_tuple(gContext.mOperation, gContext.mRotationAngle);
+      return std::make_tuple(gContext.mOperation, gContext.mOperationType, gContext.mRotationAngle);
    }
 
    void ViewManipulate(float* view, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor)

@@ -225,7 +225,7 @@ namespace IMGUIZMO_NAMESPACE
    IMGUI_API void ViewManipulate(float* view, const float* projection, OPERATION operation, MODE mode, float* matrix, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor);
 
    // Get active rotation axis
-   IMGUI_API std::tuple<OPERATION, float> CurrentRotationAxis();
+   IMGUI_API std::tuple<OPERATION, int, float> RotateOperation();
 
    IMGUI_API void SetAlternativeWindow(ImGuiWindow* window);
 
